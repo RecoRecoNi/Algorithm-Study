@@ -23,7 +23,7 @@ input = sys.stdin.readline
 n = int(input()) # 1 ≤ n ≤ 100,000
 sequence = [int(input()) for _ in range(n)] # 1~n의 정수로 이루어진 수열(같은 정수가 두 번 나오지 않음)
 
-max_num = 0
+max_num = 0 # 현재까지 stack에 추가한 가장 큰 수
 ans = []
 stack = []
 for x in sequence: # 주어진 수열의 수를 순서대로 하나씩 확인
@@ -38,7 +38,7 @@ for x in sequence: # 주어진 수열의 수를 순서대로 하나씩 확인
         if stack[-1] == x: # stack의 top이 현재 확인하고 있는 수와 같다면
             stack.pop() # pop
             ans.append('-')
-        else: # 현재 stack의 top이 x와 같지 않고 x가 max_num보다 작거나 같으면 더 이상 주어진 수열을 만들 수 없음
+        else: # 현재 stack의 top이 x와 같지 않고 x가 max_num보다 작다면 더 이상 주어진 수열을 만들 수 없음
             print('NO') # NO를 출력하고
             sys.exit(0) # 종료
 
