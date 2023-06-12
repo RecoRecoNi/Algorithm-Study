@@ -69,6 +69,7 @@ ex) Update README.md
 - Week3 | [이모티콘 할인행사 #26](https://github.com/RecoRecoNi/Algorithm-Study/issues/26) 
 - Week4 | [두 원 사이의 정수 쌍 #27](https://github.com/RecoRecoNi/Algorithm-Study/issues/27), [제로 #40](https://github.com/RecoRecoNi/Algorithm-Study/issues/40)
 - Week5 | [스택 수열 #46](https://github.com/RecoRecoNi/Algorithm-Study/issues/46), [표현 가능한 이진트리 #47](https://github.com/RecoRecoNi/Algorithm-Study/issues/47)
+- Week6 | [아방가르드 타일링 #57](https://github.com/RecoRecoNi/Algorithm-Study/issues/57), [큐 #58](https://github.com/RecoRecoNi/Algorithm-Study/issues/58)
 
 <br/>
 
