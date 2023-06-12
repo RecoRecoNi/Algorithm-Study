@@ -10,13 +10,13 @@
 - 점화식을 정리하여 행렬로 표현 가능
 - 해당 행렬을 코드로 구현하여 구하고자 하는 새로운 블록 개수(A(X))를 계산 가능
 
-- 근데 사실 아직도 이해가 다 안됐습니다,,, 넘 어렵네요,,,
+- 문제 넘 어렵네요,,, DP 문제들 많이 풀어봐야 할 것 같습니다.
 """
 
 mod = 1000000007
 
 
-def matrix_product(arr1, arr2):
+def matrix_product(arr1, arr2):  # 행렬과 행렬의 곱
     l = len(arr1)
     new_arr = [[0] * l for _ in range(l)]
     for i in range(l):
@@ -27,7 +27,7 @@ def matrix_product(arr1, arr2):
     return new_arr
 
 
-def matrix_product2(arr, lst):
+def matrix_product2(arr, lst):  # 행렬과 리스트의 곱
     l = len(arr)
     result = [0] * l
     for i in range(l):
@@ -38,12 +38,12 @@ def matrix_product2(arr, lst):
 
 
 def solution(n):
-    A = [1, 3, 10, 23, 62, 170]
+    A = [1, 3, 10, 23, 62, 170]  # n이 1 ~ 6일 때의 답
 
     if n <= 6:
         return A[n - 1]
 
-    arr = [[1, 2, 6, 1, 0, -1]]
+    arr = [[1, 2, 6, 1, 0, -1]]  # 중간 매트릭스를 만들기 위한 배열
     for i in range(5):
         lst = [0] * 6
         lst[i] = 1
@@ -57,9 +57,9 @@ def solution(n):
     cnt = n - 3
     while cnt > 0:
         if cnt % 2:
-            r_matrix = matrix_product(r_matrix, mat)
+            r_matrix = matrix_product(r_matrix, mat)  # 중간 매트릭스
         mat = matrix_product(mat, mat)
         cnt //= 2
 
-    result = matrix_product2(r_matrix, A)
+    result = matrix_product2(r_matrix, A)  # 정답을 포함하는 메트릭스를 구함
     return result[3]
