@@ -39,7 +39,7 @@ def solution(n):
 
     for i in range(4, n+1):
         # 점화식
-        d[i] = d[i-1] + 2 * d[i-2] + 6 * d[i-3] + d[i-4]
+        d[i] = d[i-1] + 2 * d[i-2] + 6 * d[i-3] + d[i-4] - d[i-6]
         d[i] %= mod
 
     answer = d[n]
