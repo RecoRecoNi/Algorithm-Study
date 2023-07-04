@@ -71,6 +71,7 @@ ex) Update README.md
 - Week5 | [스택 수열 #46](https://github.com/RecoRecoNi/Algorithm-Study/issues/46), [표현 가능한 이진트리 #47](https://github.com/RecoRecoNi/Algorithm-Study/issues/47)
 - Week6 | [아방가르드 타일링 #57](https://github.com/RecoRecoNi/Algorithm-Study/issues/57), [큐 #58](https://github.com/RecoRecoNi/Algorithm-Study/issues/58)
 - Week7 | [카드2 #69](https://github.com/RecoRecoNi/Algorithm-Study/issues/69), [표 병합 #70](https://github.com/RecoRecoNi/Algorithm-Study/issues/70)
+- Week8 | [연속된 부분 수열의 합 #81](https://github.com/RecoRecoNi/Algorithm-Study/issues/81), [덱 #82](https://github.com/RecoRecoNi/Algorithm-Study/issues/82)
 
 <br/>
 
