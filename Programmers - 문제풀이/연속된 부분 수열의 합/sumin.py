@@ -21,6 +21,7 @@
 
 
 def solution(sequence, k):
+    n = len(sequence)
     diff = n # 길이는 최대로 초기화
     end = 0
     interval_sum = 0  # 부분합
