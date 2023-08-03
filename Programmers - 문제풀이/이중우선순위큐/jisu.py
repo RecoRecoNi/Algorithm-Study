@@ -4,7 +4,7 @@
 우선순위 큐에서 빈 큐가 아니라면 최대값, 최소값만 구할 수 있으면 된다.
 이를 위해 큐를 최소힙으로 구현한다면 최소 값은 0번쨰 인덱스, 최대 값은 nlargest(1)로 구해낼 수 있다.
 그렇다면 최소값을 삭제하는 연산은 O(1)에 가능할 것 같은데, 최대 값을 삭제하는 것은 O(n) 이상이 걸릴 것
-될까..? 일단 해보자 -> 옹 된당
+될까..? 복잡도가 감이 안잡힘 일단 해보자 -> 옹 된당
 
 풀이 완료 : 2023.08.03 16:06
 
@@ -23,15 +23,15 @@ def solution(operations : List):
 
     for operation in operations:
         op, value = operation.split()
-        if op == 'I':
+        if op == 'I':                       # 삽입 연산
             heappush(heap, int(value))
-        elif heap:
-            if value=='1':
-                heap.remove(*nlargest(1, heap))
-            else:
-                heappop(heap)
+        elif heap:                                  # 최대값 / 최소값 삭제 연산, heap에 원소가 있을 때만 실행
+            if value=='1':                          # 최대값 삭제 연산
+                heap.remove(*nlargest(1, heap))     # 1번째로 큰 값 찾아서 삭제(nlargest의 반환 타입은 list임)
+            else:                                   # 최소값 삭제 연산
+                heappop(heap)                       # min heap이 default이므로 heappop시 최소값 삭제
 
-    return [*nlargest(1, heap), heappop(heap)] if heap else [0, 0]
+    return [*nlargest(1, heap), heappop(heap)] if heap else [0, 0]      # heap에 원소가 있으면 [최대값, 최소값] 반환, 비었으면 [0, 0] 반환
 
 
 def main():
