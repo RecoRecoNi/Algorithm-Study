@@ -59,6 +59,11 @@ ex) Update README.md
 
 ## 🗓️ 커리큘럼
 
+### POST SESSION : 집중적인 알고리즘 스터디
+- Week1 | [이중우선순위큐 #93](https://github.com/RecoRecoNi/Algorithm-Study/issues/93), [피로도 #94](https://github.com/RecoRecoNi/Algorithm-Study/issues/94), [정수 삼각형 #95](https://github.com/RecoRecoNi/Algorithm-Study/issues/95), [타겟 넘버 #96](https://github.com/RecoRecoNi/Algorithm-Study/issues/96)
+
+<br/>
+
 ### Warming Up
 
 - 복잡한 알고리즘 없이 풀 수 있는 Programmers 문제로 Python 감 잡기.
@@ -72,9 +77,6 @@ ex) Update README.md
 - Week6 | [아방가르드 타일링 #57](https://github.com/RecoRecoNi/Algorithm-Study/issues/57), [큐 #58](https://github.com/RecoRecoNi/Algorithm-Study/issues/58)
 - Week7 | [카드2 #69](https://github.com/RecoRecoNi/Algorithm-Study/issues/69), [표 병합 #70](https://github.com/RecoRecoNi/Algorithm-Study/issues/70)
 - Week8 | [연속된 부분 수열의 합 #81](https://github.com/RecoRecoNi/Algorithm-Study/issues/81), [덱 #82](https://github.com/RecoRecoNi/Algorithm-Study/issues/82)
-
-- Week1 | [이중우선순위큐 #93](https://github.com/RecoRecoNi/Algorithm-Study/issues/93), [피로도 #94](https://github.com/RecoRecoNi/Algorithm-Study/issues/94), [정수 삼각형 #95](https://github.com/RecoRecoNi/Algorithm-Study/issues/95), [타겟 넘버 #96](https://github.com/RecoRecoNi/Algorithm-Study/issues/96)
-<br/>
 
 <!-- ### Programmers - 고득점 Kit
 
@@ -111,7 +113,7 @@ ex) Update README.md
   
 ### Programmers - 문제풀이
 
-- [프로그래머스](https://school.programmers.co.kr/learn/challenges?tab=all_challenges&order=recent&page=1&languages=python3&levels=2%2C3)의 Level 2, 3 문제를 최신순으로 풀기
+- [프로그래머스](https://school.programmers.co.kr/learn/challenges?tab=all_challenges&order=acceptance_desc&page=2&languages=python3&levels=2%2C3)의 Level 2, 3 문제를 정확도 높은순으로 정렬하여 60프로 이하의 정답률을 가지는 문제 풀기
 
 ### BOJ
 
