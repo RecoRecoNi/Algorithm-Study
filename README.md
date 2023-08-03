@@ -73,6 +73,7 @@ ex) Update README.md
 - Week7 | [카드2 #69](https://github.com/RecoRecoNi/Algorithm-Study/issues/69), [표 병합 #70](https://github.com/RecoRecoNi/Algorithm-Study/issues/70)
 - Week8 | [연속된 부분 수열의 합 #81](https://github.com/RecoRecoNi/Algorithm-Study/issues/81), [덱 #82](https://github.com/RecoRecoNi/Algorithm-Study/issues/82)
 
+- Week1 | [이중우선순위큐 #93](https://github.com/RecoRecoNi/Algorithm-Study/issues/93), [피로도 #94](https://github.com/RecoRecoNi/Algorithm-Study/issues/94), [정수 삼각형 #95](https://github.com/RecoRecoNi/Algorithm-Study/issues/95), [타겟 넘버 #96](https://github.com/RecoRecoNi/Algorithm-Study/issues/96)
 <br/>
 
 <!-- ### Programmers - 고득점 Kit
