@@ -123,6 +123,6 @@ def boj_solution():
                 heapq.heappop(min_h)
 
 
-        print("EMPTY" if not max_h else f"{-1 * heapq.heappop(max_h)[0]} {heapq.heappop(min_h)[0]}")
+        print("EMPTY" if not max_h else f"{-1 * max_h[0][0]} {min_h[0][0]}")
     
 boj_solution()
