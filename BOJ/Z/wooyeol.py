@@ -37,11 +37,11 @@ def recursive(n: int, r: int, c: int):
 
     # print(n, size, r, c)
 
-    # 제 1사분면
+    # 제 2사분면
     if r < size and c < size:
         return 0 * (size * size) + recursive(n - 1, r, c)
 
-    # 제 2사분면
+    # 제 1사분면
     if r < size and c >= size:
         return 1 * (size * size) + recursive(n - 1, r, c - size)
 
