@@ -23,14 +23,13 @@ def go(n, r, c):
     if n == 0:
         return 0
     half = 2 ** (n-1)
-    if r < half and c < half: # 1사분면
+    if r < half and c < half: # 1번 사각형
         return go(n-1, r, c)
-    elif r < half and c >= half: # 2사분면
+    elif r < half and c >= half: # 2번 사각형
         return half * half + go(n-1, r, c-half)
-    elif r >= half and c < half: # 3사분면
+    elif r >= half and c < half: # 3번 사각형
         return 2 * half * half + go(n-1, r-1, c)
-    return 3 * half * half + go(n-1, r-half, c-half) # 4 사분면
-
+    return 3 * half * half + go(n-1, r-half, c-half) # 4번 사각형
 
 n, r, c = map(int, input().split())
 print(go(n, r, c))
