@@ -31,6 +31,5 @@ def go(n, r, c):
         return 2 * half * half + go(n-1, r-1, c)
     return 3 * half * half + go(n-1, r-half, c-half) # 4번 사각형
 
-
 n, r, c = map(int, input().split())
 print(go(n, r, c))
