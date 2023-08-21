@@ -35,6 +35,8 @@ def is_prime(number: int) -> bool:
 def solution(n: int, k: int) -> int:
     converted_num = convert_to_base(n, k) # n을 k진수로 변환
     cnt = 0 # 조건에 맞는 소수의 개수
+    # 변환된 수에 대한 조건으로 0이 양쪽 or 오른쪽 or 왼쪽 or 아예 안 붙는 경우에 해당하는 지 확인해야 하기 때문에 0을 기준으로 나눠줌 
+    # -> 0을 기준으로 나눠지는 수는 해당 조건들 중 어느 하나라도 만족함
     for segment in converted_num.split('0'):
         if not segment: # 빈 문자열
             continue
