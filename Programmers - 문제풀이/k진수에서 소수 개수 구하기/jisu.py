@@ -29,8 +29,6 @@ def de2k(n:int, k: int) -> str:                     # 10진수(decimal) -> k진�
 def isPrimeNumber(num: int) -> bool:                # 소수 판별
     if num == 1:
         return False
-    elif num == 2:
-        return True
     else:
         for i in range(2, int(num**0.5)+1):         # n의 n을 제외한 모든 약수는 [1, sqrt(n)] 내에 존재한다.
             if num%i == 0:
