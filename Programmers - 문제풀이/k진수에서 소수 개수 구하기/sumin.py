@@ -20,7 +20,7 @@ def convert_to_base(n: int, base: int) -> str:
         result += str(remainder)
     return result[::-1]
 
-# 소수 판별(에라토스테네스의 체)
+# 소수 판별
 def is_prime(number: int) -> bool:
     if number <= 1:
         return False
