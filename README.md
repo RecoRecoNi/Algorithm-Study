@@ -25,12 +25,12 @@
 
 ### 📢 Rules
 
-- `일요일 밤 12시`, `수요일 밤 12시`까지 문제 풀이를 남깁니다.
-- `월요일 낮 12시`, `목요일 낮 12시`까지 `코드 리뷰`를 진행합니다.
-- 매주 월,목 코드 리뷰를 진행합니다.
+- `스터디 진행 당일 13시`까지 문제별 폴더에 `이름.py` 파일 생성 및 `이슈 번호`를 포함한 `문제 풀이 코드, 설명, 주석이 담긴 PR`을 남깁니다.
+- `스터디 진행 당일 16시`까지 코드 리뷰를 남깁니다.
+- 매주 `월, 수, 금 16시`에 코드 리뷰를 진행합니다.
 <!-- `오전 10시` 온라인 스터디에서 `코드 리뷰` 및 `문제 선정` _주말, 공휴일 제외_ -->
 - 돌아가면서 선정한 문제 [Issue](https://github.com/RecoRecoNi/Algorithm-Study/issues) 로 등록
-- 다음 날 스터디 전까지 문제별 폴더에 `이름.py` 파일 생성 및 `이슈 번호`를 포함한 `PR`
+- 다음 날 스터디 전까지 
 
 <!-- > 🚨 실패시 벌금 2배씩 증가 `1000*(2^n)` 취업 후 일괄 납부😊 중도 포기시 누적 벌금 \* 10배   -->
 <!-- > 유고 사유 | 익일 코딩테스트 및 면접, 질병(인증 필요) -->
@@ -59,12 +59,13 @@ ex) Update README.md
 
 ## 🗓️ 커리큘럼
 
-### POST SESSION : 집중적인 알고리즘 스터디
+### POST SESSION : 집중적인 알고리즘 스터디 `진행중`
 - Week1 | [이중우선순위큐 #93](https://github.com/RecoRecoNi/Algorithm-Study/issues/93), [피로도 #94](https://github.com/RecoRecoNi/Algorithm-Study/issues/94), [정수 삼각형 #95](https://github.com/RecoRecoNi/Algorithm-Study/issues/95), [타겟 넘버 #96](https://github.com/RecoRecoNi/Algorithm-Study/issues/96)
 - Week2 | [쇠 막대기 #109](https://github.com/RecoRecoNi/Algorithm-Study/issues/109), [괄호의 값 #110](https://github.com/RecoRecoNi/Algorithm-Study/issues/110), [불! #111](https://github.com/RecoRecoNi/Algorithm-Study/issues/111), [빙산 #112](https://github.com/RecoRecoNi/Algorithm-Study/issues/112), [Z #113](https://github.com/RecoRecoNi/Algorithm-Study/issues/113), [종이의 개수 #114](https://github.com/RecoRecoNi/Algorithm-Study/issues/114)
+- Week3 | [전화번호 목록 #136](https://github.com/RecoRecoNi/Algorithm-Study/issues/136), [k진수에서 소수 개수 구하기 #137](https://github.com/RecoRecoNi/Algorithm-Study/issues/137), [최고의 집합 #142](https://github.com/RecoRecoNi/Algorithm-Study/issues/142), [네트워크 #143](https://github.com/RecoRecoNi/Algorithm-Study/issues/143), [압축 #144](https://github.com/RecoRecoNi/Algorithm-Study/issues/144), [야근 지수 #145](https://github.com/RecoRecoNi/Algorithm-Study/issues/145)
 <br/>
 
-### Warming Up
+### Warming Up `종료`
 
 - 복잡한 알고리즘 없이 풀 수 있는 Programmers 문제로 Python 감 잡기.
 
