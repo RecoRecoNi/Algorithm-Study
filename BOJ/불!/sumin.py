@@ -28,8 +28,8 @@ r, c = map(int, input().split())
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
 
-fire = [[-1] * c for _ in range(r)]  # 불의 전파 시간
-jihoon = [[-1] * c for _ in range(r)]  # 지훈이의 이동 시간
+fire = [[-1] * c for _ in range(r)] # 불의 전파 시간
+jihoon = [[-1] * c for _ in range(r)] # 지훈이의 이동 시간
 
 
 q1 = deque()  # 불의 전파에 대한 BFS 돌기 위한 큐
