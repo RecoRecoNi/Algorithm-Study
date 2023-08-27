@@ -29,7 +29,7 @@ def solution(msg):
         # 2. 사전에서 현재 입력과 일치하는 가장 긴 문자열 w를 찾는다.
         if j == len(msg) or msg[i:j+1] not in dic: # 현재 단어가 사전에 없다면 그 단어의 직전까지가 사전에 존재하는 가장 긴 문자열 w
             answer.append(dic[msg[i:j]]) # 3. w에 해당하는 사전의 색인 번호를 answer에 추가
-            dic[msg[i:j+1]] = len(dic) + 1 # w+c에 해당하는 단어를 사전에 등록
+            dic[msg[i:j+1]] = len(dic) + 1 # 4. w+c에 해당하는 단어를 사전에 등록
             i = j # 다음 글자로 넘어간다.
 
     return answer
