@@ -17,40 +17,44 @@
     - DFS/BFS 원리를 조금 더 면밀히 이해할 필요가 있음
 - 백트래킹? 개념은 몰랐지만 실패한 본인 풀이에서 백트래킹 개념으로 풀이하고 있었음
     - Q. 따로 공부하는 개념이 아니라 문제를 많이 풀어보는게 좋을까요?!
+- 행을 고정하여 탐색을 시작하는 것이 중요했던 것 같음
 
 """
 
-from collections import deque
+import sys
+limit_number = 987654321
+sys.setrecursionlimit(limit_number)
 
-def is_safe(row, col, queens): # 주어진 행과 열의 위치에 퀸을 놓을 수 있는지 확인하는 함수
-    for r, c in queens: # 기존 퀸의 위치 좌표를 받아옴
-        if row == r or col == c or abs(row - r) == abs(col - c): # 같은행, 같은열, 대각선에 퀸이 있는지 확인
-            return False # 퀸이 존재하므로 False 반환
-    return True
+def n_queen(n, row, columns, diagonals1, diagonals2):
+    if row == n:
+        return 1  # 모든 행에 퀸을 배치한 경우 1을 반환하여 가능한 경우의 수를 세기 시작
 
-def n_queen(n, row, queens): # DFS
-    if row == n: # 모든 행 탐색이 끝났을 때 -> 모든 퀸을 다 놓은 것 -> 1 을 반환
-        return 1
+    count = 0  # 퀸을 놓을 수 있는 경우의 수
 
-    count = 0
-    for col in range(n): # 행을 입력으로 받은 후 해당 행의 모든 열을 순회
-        if is_safe(row, col, queens): # 만약 특정 좌표에 퀸을 둘 수 있다면
-            queens.append((row, col)) # 퀸 좌표 스택에 추가 (즉 퀸을 두었다고 볼 수 있음)
-            count += n_queen(n, row + 1, queens)
-            queens.pop()
+    # 현재 행에서 가능한 모든 열을 확인하며 백트래킹
+    for col in range(n):
+        # 만약 해당 열이나 대각선에 퀸이 이미 존재하면 다음 열로 넘어감
+        if columns[col] or diagonals1[row + col] or diagonals2[row - col]:
+            continue
+
+        # 현재 위치에 퀸을 배치하고 충돌 체크를 업데이트
+        columns[col] = diagonals1[row + col] = diagonals2[row - col] = True
+
+        # 다음 행으로 넘어가면서 가능한 경우의 수를 재귀적으로 탐색
+        count += n_queen(n, row + 1, columns, diagonals1, diagonals2)
+
+        # 퀸 배치를 되돌리고 다음 열로 넘어감
+        columns[col] = diagonals1[row + col] = diagonals2[row - col] = False
 
     return count
 
-N = int(input())
-queens = deque()
-result = n_queen(N, 0, queens)
+N = int(input()) # N 하나만 받으므로 sys 모듈 사용하지 않아도 문제 없음
+
+# 각 열, 대각선의 충돌 여부를 저장하는 배열 초기화
+columns = [False] * N
+diagonals1 = [False] * (2 * N - 1) # 왼쪽 위에서 오른쪽 아래로 향하는 대각선 (0, 0 ~ n-1, n-1)
+diagonals2 = [False] * (2 * N - 1) # 오른쪽 위에서 왼쪽 아래로 향하는 대각선 (0, n-1 ~ n-1, 0)
+
+# 첫 행부터 탐색 시작
+result = n_queen(N, 0, columns, diagonals1, diagonals2)
 print(result)
-
-"""
-ex : 8 -> 92
-
-ex1 : 1 -> 1
-ex2 : 2 -> 0
-ex3 : 3 -> 0
-ex4 : 4 -> 2
-"""
