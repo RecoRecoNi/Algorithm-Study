@@ -17,15 +17,19 @@
 - 위와 같이 BFS 탐색 시 마지막으로 탐색된 더러운 칸 기준 가장 가까운 칸부터 탐색이 됨
     - [*.o******]   이 경우 문제가 될 수 있음
     - 모든 경우 중 최단의 경로로 갈 수 있는 방법을 생각해야 된다.
-- 더러운 칸의 수는 최대 10! 결국 더러운 칸을 탐색하는 순서가 문제가 되므로 더러운 칸을 방문하는 순서의 순열을 구해 완전탐색하자.
+- 더러운 칸의 수는 최대 10, 결국 더러운 칸을 탐색하는 순서가 문제가 되므로 더러운 칸을 방문하는 순서의 순열을 구해 완전탐색하자.
     - 한 더러운 칸에서 다른 더러운 칸으로 이동하는 최단 경로를 모두 알아야 함
     - 시간 복잡도.. 괜찮을까?
-        - 더러운 칸 순열 * BFS 탐색 * 더러운 칸 수 = 10! * 20^2 * 10
+        - 최단 경로 matrix 만들기 -> 최대 10 * 10 / 2 * BFS(20 * 20) = 20000
+        - 최단 경로 구하기 -> 최대 10! * 거리는 이미 구해져있으므로 1 = 3628800
+        - 위 두 경우는 독립적으로 시행되므로 가능! 구현해보자.
+
+풀이 완료 : 2023-08-30 22:10 (소요시간 4시간 20분)
 """
 import sys
 from typing import List, Tuple
-from copy import deepcopy
 from collections import deque
+from itertools import product, permutations
 
 input = sys.stdin.readline
 dy = [-1, 1, 0, 0]
@@ -33,68 +37,124 @@ dx = [0, 0, -1, 1]
 
 
 def bfs(
-    matrix: List[List[str]], num_dirty_place: int, robot_idx: Tuple[int, int, int]
-) -> int:
+    matrix: List[List[str]],
+    st: Tuple[int, int],
+    dt: Tuple[int, int],
+):
     """
-    BFS 탐색을 진행한다. 더러운 칸 방문시 카운트는 유지하되, 방문 정보는 초기화한다.
+    주어진 matrix에서 두 점 사이의 최단 거리를 구해 반환한다.
     """
-    r, c = len(matrix), len(matrix[0])
-    queue = deque([robot_idx])
-    visited = [[False for _ in range(c)] for _ in range(r)]
-
-    tmp_visited = deepcopy(visited)
-    tmp_visited[robot_idx[0]][robot_idx[1]] = True
+    visited = [[False for _ in range(w)] for _ in range(h)]
+    queue = deque([(*st, 0)])
+    visited[st[0]][st[1]] = True
 
     while queue:
         y, x, cnt = queue.popleft()
 
-        if matrix[y][x] == "*":
-            num_dirty_place -= 1
-
-            if num_dirty_place == 0:
-                return cnt
-            else:
-                matrix[y][x] = "."
-                queue.clear()
-                tmp_visited = deepcopy(visited)
-                tmp_visited[y][x] = True
+        if (y, x) == dt:
+            return cnt
 
         for d in range(4):
             ny, nx = y + dy[d], x + dx[d]
-
             if (
-                0 <= ny < r
-                and 0 <= nx < c
-                and not tmp_visited[ny][nx]
-                and not matrix[ny][nx] == "x"
+                0 <= ny < h
+                and 0 <= nx < w
+                and not visited[ny][nx]
+                and matrix[ny][nx] != "x"
             ):
                 queue.append((ny, nx, cnt + 1))
-                tmp_visited[ny][nx] = True
+                visited[ny][nx] = True
 
     return -1
 
 
-def simulation(w: int, h: int) -> int:
+def get_distance_matrix(
+    matrix: List[List[str]], points: List[Tuple[int, int]]
+) -> List[List[int]]:
     """
-    각 테스트케이스마다의 탐색을 진행한다.
+    로봇청소기와 더러운 칸, 더러운 칸과 더러운 칸의 모든 거리를 저장한 distance matrix를 만들어 반환한다.
+
+    points = 로봇청소기 위치 + 더러운칸 위치(robot_and_dirty_place)
+    """
+    distance_matrix = [[0 for _ in range(len(points))] for _ in range(len(points))]
+
+    for st, dt in product(
+        range(len(points)), range(len(points))
+    ):  # 모든 (시작점 idx, 도착점 idx) 집합을 순회한다.
+        if distance_matrix[st][dt]:  # distance matrix는 대칭이므로 이전 연산에 의해 이미 저장되어있는 경우
+            continue
+
+        distance = bfs(
+            matrix, points[st], points[dt]
+        )  # matrix에서 두 점사이의 최단 거리는 bfs로 구한다.
+
+        if distance == -1:  # 탐색에 실패하는 경우(더러운 칸에 갈 수 없는 경우)
+            return False  # 실패 반환
+        else:
+            distance_matrix[st][dt] = distance_matrix[dt][
+                st
+            ] = distance  # distance_matrix는 대칭
+
+    return distance_matrix
+
+
+def get_min_path(distance_matrix: List[List[int]]) -> int:
+    """
+    주어진 distance_matrix에서 최단 이동 경로를 구해 반환한다.
+    """
+    min_path = 1000000
+
+    for case in permutations(
+        range(1, len(distance_matrix))
+    ):  # 더러운 곳 탐색 순서의 모든 경우의 수 탐색(최대 10!), 0번째는 로봇 위치임
+        tmp = distance_matrix[0][case[0]]  # 로봇 -> 첫 번째 더러운 곳
+        for i in range(len(case) - 1):  # 더러운 곳 -> 더러운 곳
+            tmp += distance_matrix[case[i]][case[i + 1]]
+        min_path = min(min_path, tmp)  # 최단 이동 경로 업데이트
+
+    return min_path
+
+
+def start_simulation(
+    matrix: List[List[str]],
+    dirty_places: List[Tuple[int, int]],
+    robot_idx: Tuple[int, int],
+):
+    """
+    주어진 조건에서 최단 이동경로를 찾기 위한 시뮬레이션을 시작한다.
+    1. 모든 더러운 칸끼리의 거리를 저장한 distance matrix생성한다. (로봇 포함)
+        1-1. distance_matrix 만들기에 실패하면 -1을 반환한다.
+    2. 주어진 distance_matrix에서 최단 이동 경로를 구해 반환한다.
+
+    """
+    robot_and_dirty_place = [robot_idx] + dirty_places  # 로봇과 더러운 칸과의 거리도 알아야 하므로 위치 합치기
+    distance_matrix = get_distance_matrix(matrix, robot_and_dirty_place)
+    if not distance_matrix:
+        return -1
+
+    return get_min_path(distance_matrix)
+
+
+def simulation() -> int:
+    """
+    주어진 각 테스트케이스마다 시뮬레이션을 위한 셋업(matrix만들기, 로봇 위치, 더러운 칸 위치) 후 시뮬레이션을 호출한다.
     """
     matrix = []
-    num_dirty_place = 0
+    dirty_places = []
     robot_idx = None
 
     for r in range(h):
         row = list(input().rstrip())
-        num_dirty_place += row.count("*")
 
-        if not robot_idx:
-            for c in range(w):
-                if row[c] == "o":
-                    robot_idx = (r, c, 0)
-                    break
+        for c in range(w):
+            if not robot_idx and row[c] == "o":  # 로봇은 한 대만 주어짐
+                robot_idx = (r, c)
+            if row[c] == "*":
+                dirty_places.append((r, c))
 
         matrix.append(row)
 
-    return bfs(matrix, num_dirty_place, robot_idx)
+    return start_simulation(matrix, dirty_places, robot_idx)  # 최단 이동 경로를 얻기 위한 시뮬레이션 시작
 
 
 while True:
@@ -103,4 +163,4 @@ while True:
     if not h:
         break
 
-    print(simulation(w, h))
+    print(simulation())
