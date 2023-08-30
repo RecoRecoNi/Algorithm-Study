@@ -40,7 +40,7 @@ def bfs(
     matrix: List[List[str]],
     st: Tuple[int, int],
     dt: Tuple[int, int],
-):
+) -> int:
     """
     주어진 matrix에서 두 점 사이의 최단 거리를 구해 반환한다.
     """
@@ -89,7 +89,7 @@ def get_distance_matrix(
         )  # matrix에서 두 점사이의 최단 거리는 bfs로 구한다.
 
         if distance == -1:  # 탐색에 실패하는 경우(더러운 칸에 갈 수 없는 경우)
-            return False  # 실패 반환
+            return -1  # 실패 반환
         else:
             distance_matrix[st][dt] = distance_matrix[dt][
                 st
@@ -119,7 +119,7 @@ def start_simulation(
     matrix: List[List[str]],
     dirty_places: List[Tuple[int, int]],
     robot_idx: Tuple[int, int],
-):
+) -> int:
     """
     주어진 조건에서 최단 이동경로를 찾기 위한 시뮬레이션을 시작한다.
     1. 모든 더러운 칸끼리의 거리를 저장한 distance matrix생성한다. (로봇 포함)
@@ -129,7 +129,7 @@ def start_simulation(
     """
     robot_and_dirty_place = [robot_idx] + dirty_places  # 로봇과 더러운 칸과의 거리도 알아야 하므로 위치 합치기
     distance_matrix = get_distance_matrix(matrix, robot_and_dirty_place)
-    if not distance_matrix:
+    if distance_matrix == -1:
         return -1
 
     return get_min_path(distance_matrix)
