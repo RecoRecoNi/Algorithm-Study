@@ -79,8 +79,8 @@ for _ in range(K):
 L = int(input())
 changes = deque([])
 for _ in range(L):
-    seconds, direction = input().split()
-    changes.append((int(seconds) + 1, direction))
+    seconds, direc = input().split()
+    changes.append((int(seconds) + 1, direc))
 
 
 # 시뮬레이션 실행 (최대 10,100)
