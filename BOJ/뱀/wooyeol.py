@@ -83,7 +83,7 @@ for _ in range(L):
     changes.append((int(seconds) + 1, direction))
 
 
-# 시뮬레이션 실행 (최대 100 + 99)
+# 시뮬레이션 실행 (최대 10,100)
 while True:
     # 게임 시간 증가
     timer += 1
