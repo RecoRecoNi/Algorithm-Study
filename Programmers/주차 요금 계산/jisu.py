@@ -10,7 +10,7 @@
     - 하루 동안의 모든 주차 내역을 합산 후 요금을 계산하여야 함.
     - 최종적으로 합산 된 주차 시간으로 요금 계산 후, 차번 오름차순으로 요금 반환
 
-풀이 완료 : 2023-09-05 00:40
+풀이 완료 : 2023-09-05 00:40(1시간 소요)
 
 """
 from typing import List
@@ -19,7 +19,7 @@ from collections import defaultdict
 
 def get_fee(during_time: int, fees: List[int]) -> int:
     """
-    최종 주차 시간을 바탕으로 조건에 맞게 주차 요금을 계산한다.
+    최종 주차 시간을 바탕으로 fees 조건에 맞게 주차 요금을 계산한다.
     """
     if during_time <= fees[0]:  # 기본 주차 시간보다 적은 경우
         return fees[1]  # 기본 주차 요금 반환
@@ -33,7 +33,7 @@ def get_fee(during_time: int, fees: List[int]) -> int:
 
 def get_during_time(in_time: str, out_time: str) -> int:
     """
-    입차 시간, 출차 시간을 바탕으로 주차 되어있던 시간을 min 단위로 계산한다.
+    입차 시간, 출차 시간을 바탕으로 주차 되어있던 시간을 min 단위로 변환한다.
     """
     in_hour, in_min = map(int, in_time.split(":"))
     out_hour, out_min = map(int, out_time.split(":"))
