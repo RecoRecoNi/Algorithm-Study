@@ -27,21 +27,26 @@ def can_transform(fr: str, to: str) -> bool:
 
 
 def solution(begin: str, target: str, words: List[str]) -> int:
-    visited = [False for _ in range(len(words))]
-    answers = []
+    """
+    begin의 문자를 words 내의 단어들로 변환을 거듭하여 target으로 만들 수 있는 최소 카운트를 반환한다.
+    """
+    visited = [False for _ in range(len(words))]  # 방문 여부를 관리하는 visited 배열
+    answers = []  # 정답을 담을 answers 배열
 
-    def dfs(begin: str, target: str, cnt: int) -> int:
-        if begin == target:
-            answers.append(cnt)
+    def dfs(begin: str, target: str, cnt: int) -> int:  # 변환을 거듭하는 재귀 함수
+        if begin == target:  # target으로 변환을 성공한 경우
+            answers.append(cnt)  # 정답 배열의 경우의 수 추가
 
-        for i, word in enumerate(words):
-            if can_transform(begin, word) and not visited[i]:
-                visited[i] = True
-                dfs(word, target, cnt + 1)
-                visited[i] = False
+        for i, word in enumerate(words):  # 현재 begin 문자열에서 words에 있는 문자 중
+            if (
+                can_transform(begin, word) and not visited[i]
+            ):  # 다른 문자가 하나이고, 아직 변환되지 않은 경우에만
+                visited[i] = True  # 방문 처리 후
+                dfs(word, target, cnt + 1)  # 해당 단어로 변환
+                visited[i] = False  # 백트래킹, 다른 경우로 가지 뻗기
 
     dfs(begin, target, 0)
-    return min(answers) if answers else 0
+    return min(answers) if answers else 0  # 최소 경우의 수 반환
 
 
 def main() -> None:
