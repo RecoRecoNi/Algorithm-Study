@@ -53,10 +53,10 @@ def solution(n: int, t: int, m: int, p: int) -> str:
     """
     tmp = ""
     num = 0
-    while len(tmp) < p + (m * t):  # 튜브 순서가 t번 돌 수 있을 때까지
+    while len(tmp) < (m * t):  # 튜브 순서가 t번 돌 수 있을 때까지
         tmp += de2n(num, n)  # n진수로 변환하여 이어붙임
         num += 1
-    return "".join(tmp[p - 1 :: m][:t])  # 오버하는 경우 t개까지만 출력
+    return tmp[p - 1 :: m][:t]  # 오버하는 경우 t개까지만 출력
 
 
 def main() -> None:
