@@ -70,9 +70,7 @@ def solution(fees: List[int], records: List[str]) -> List[int]:
     for key, value in time_dict.items():  # 모든 차량의 주차 시간 기록을 바탕으로 주차요금 계산
         result_dict[key] += get_fee(value, fees)
 
-    return [
-        fee for _, fee in sorted(list(result_dict.items()))
-    ]  # 차량 번호의 오름차순으로 정렬하여 반환
+    return [fee for _, fee in sorted(result_dict.items())]  # 차량 번호의 오름차순으로 정렬하여 반환
 
 
 def main() -> None:
