@@ -12,10 +12,16 @@
     1 ≦ p ≦ m
 
     시간 복잡도 : 
-    O()
+    O(m(게임에 참가하는 인원) * t(미리 구할 숫자의 갯수))
+    O(mt)
 
     접근법
     무슨 알고리즘으로 풀이 할 수 있을까? -> 구현
+
+    - 처음에는 n진수의 첫자리 숫자들로 만들었다고 착각하고 풀었다가 제출하다보니 case3번이 이상한 것을 느끼고 재풀이 진행
+
+    1. 정수를 증가시키며 n진수의 표현으로 변환한다.
+    2. n진수의 표현 중에서 튜브의 순서인 숫자만 answer에 추가한다.
 """
 
 
@@ -35,6 +41,7 @@ def base_num(decimal: int, n: int) -> list:
 
     while decimal > 0:
         decimal, remain = divmod(decimal, n)
+        # 10 이상의 정수는 A~F로 변환
         if remain >= 10:
             remain += ord("A") - 10
             remain = chr(remain)
