@@ -28,14 +28,14 @@ input = sys.stdin.readline
 st1 = input().rstrip()
 st2 = input().rstrip()
 
+# 행과 열이 0일 때의 예외처리를 위해 임시로 행 열 하나씩 늘리기
 dp = [[0 for _ in range(len(st1) + 1)] for _ in range(len(st2) + 1)]
 
 for r in range(1, len(st2) + 1):
     for c in range(1, len(st1) + 1):
-        if st2[r - 1] == st1[c - 1]:
-            dp[r][c] = dp[r - 1][c - 1] + 1
-        else:
-            dp[r][c] = max(dp[r - 1][c], dp[r][c - 1])
-
+        if st2[r - 1] == st1[c - 1]:  # 대응하는 문자가 같을 경우
+            dp[r][c] = dp[r - 1][c - 1] + 1  # 대각선에서 증가
+        else:  # 대응하는 문자가 다를 경우
+            dp[r][c] = max(dp[r - 1][c], dp[r][c - 1])  # 왼쪽, 위쪽 중 큰게 옴
 
 print(dp[-1][-1])
