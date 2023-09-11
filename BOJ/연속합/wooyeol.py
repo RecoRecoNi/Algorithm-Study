@@ -35,7 +35,7 @@ max_value = dp[0]
 for i in range(1, N):
     dp[i] = n_array[i]
     if dp[i] < dp[i - 1] + n_array[i]:
-        dp[i] = dp[i - 1] + n_array[i]:
+        dp[i] = dp[i - 1] + n_array[i]
     if dp[i] > max_value:
         max_value = dp[i]
 
