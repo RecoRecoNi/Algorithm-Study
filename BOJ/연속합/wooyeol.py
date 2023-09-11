@@ -33,7 +33,9 @@ max_value = dp[0]
 
 # 1번째 인덱스 부터 N-1까지 데이터를 순회하며 DP 테이블 업데이트 후 최대 값 기억하기
 for i in range(1, N):
-    dp[i] = max(n_array[i], dp[i - 1] + n_array[i])
+    dp[i] = n_array[i]
+    if dp[i] < dp[i - 1] + n_array[i]:
+        dp[i] = dp[i - 1] + n_array[i]:
     if dp[i] > max_value:
         max_value = dp[i]
 
