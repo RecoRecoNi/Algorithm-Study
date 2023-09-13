@@ -31,10 +31,10 @@ classes = sorted(
 assigned = []  # min heap으로 사용
 
 for st, en in classes:
-    if not assigned or assigned[0] > st:
-        heappush(assigned, en)
-    else:
-        heappop(assigned)
-        heappush(assigned, en)
+    if not assigned or assigned[0] > st:  # 가장 빨리 끝나는 강의의 끝나는 시간보다 현재 강의 시작이 빠름
+        heappush(assigned, en)  # 그럼 강의실 추가해야 됨
+    else:  # 아니면
+        heappop(assigned)  # 기존 강의 끝내고
+        heappush(assigned, en)  # 현재 강의 배정
 
-print(len(assigned))
+print(len(assigned))  # 최종 배정한 강의실 개수 반환
