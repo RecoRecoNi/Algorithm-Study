@@ -9,12 +9,12 @@
 """
 
 import sys
-from typing import List
+from typing import Set
 
 input = sys.stdin.readline
 
 
-def get_prime_numbers() -> List[int]:
+def get_prime_numbers() -> Set[int]:
     """
     에라토스테네스의 체 알고리즘을 활용해 10000이하의 모든 소수를 반환한다.
     """
