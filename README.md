@@ -59,12 +59,16 @@ ex) Update README.md
 
 ## 🗓️ 커리큘럼
 
-### POST SESSION : 집중적인 알고리즘 스터디 `진행중`
+### POST SESSION : 집중적인 알고리즘 스터디 `진행중`⏳
 - Week1 | [이중우선순위큐 #93](https://github.com/RecoRecoNi/Algorithm-Study/issues/93), [피로도 #94](https://github.com/RecoRecoNi/Algorithm-Study/issues/94), [정수 삼각형 #95](https://github.com/RecoRecoNi/Algorithm-Study/issues/95), [타겟 넘버 #96](https://github.com/RecoRecoNi/Algorithm-Study/issues/96)
 - Week2 | [쇠 막대기 #109](https://github.com/RecoRecoNi/Algorithm-Study/issues/109), [괄호의 값 #110](https://github.com/RecoRecoNi/Algorithm-Study/issues/110), [불! #111](https://github.com/RecoRecoNi/Algorithm-Study/issues/111), [빙산 #112](https://github.com/RecoRecoNi/Algorithm-Study/issues/112), [Z #113](https://github.com/RecoRecoNi/Algorithm-Study/issues/113), [종이의 개수 #114](https://github.com/RecoRecoNi/Algorithm-Study/issues/114)
 - Week3 | [전화번호 목록 #136](https://github.com/RecoRecoNi/Algorithm-Study/issues/136), [k진수에서 소수 개수 구하기 #137](https://github.com/RecoRecoNi/Algorithm-Study/issues/137), [최고의 집합 #142](https://github.com/RecoRecoNi/Algorithm-Study/issues/142), [네트워크 #143](https://github.com/RecoRecoNi/Algorithm-Study/issues/143)
 - Week4 | [압축 #144](https://github.com/RecoRecoNi/Algorithm-Study/issues/144), [야근 지수 #145](https://github.com/RecoRecoNi/Algorithm-Study/issues/145), [N-Queen #160](https://github.com/RecoRecoNi/Algorithm-Study/issues/160), [암호 만들기 #161](https://github.com/RecoRecoNi/Algorithm-Study/issues/161)
 - Week5 | [로봇 청소기 #162](https://github.com/RecoRecoNi/Algorithm-Study/issues/162), [뱀 #163](https://github.com/RecoRecoNi/Algorithm-Study/issues/163), [n진수 게임 #181](https://github.com/RecoRecoNi/Algorithm-Study/issues/181), [주차 요금 계산 #182](https://github.com/RecoRecoNi/Algorithm-Study/issues/182), [더 맵게 #183](https://github.com/RecoRecoNi/Algorithm-Study/issues/183), [단어 변환 #184](https://github.com/RecoRecoNi/Algorithm-Study/issues/184)
+- Week6 | [연속합 #204](https://github.com/RecoRecoNi/Algorithm-Study/issues/204), [LCS #205](https://github.com/RecoRecoNi/Algorithm-Study/issues/205), [잃어버린 괄호 #206](https://github.com/RecoRecoNi/Algorithm-Study/issues/206), [강의실 배정 #207](https://github.com/RecoRecoNi/Algorithm-Study/issues/207), [골드바흐의 추측 #208](https://github.com/RecoRecoNi/Algorithm-Study/issues/208), [수 이어쓰기 2 #209](https://github.com/RecoRecoNi/Algorithm-Study/issues/209)
+- Week7 | [게임 맵 최단거리 #236](https://github.com/RecoRecoNi/Algorithm-Study/issues/236), [모음사전 #237](https://github.com/RecoRecoNi/Algorithm-Study/issues/237), [땅따먹기 #238](https://github.com/RecoRecoNi/Algorithm-Study/issues/238), [오픈채팅방 #239](https://github.com/RecoRecoNi/Algorithm-Study/issues/239), [방문 길이 #240](https://github.com/RecoRecoNi/Algorithm-Study/issues/240), [뒤에 있는 큰 수 찾기 #241](https://github.com/RecoRecoNi/Algorithm-Study/issues/241)
+
+
 
 ### Warming Up `종료`
 
