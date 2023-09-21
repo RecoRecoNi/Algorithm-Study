@@ -36,7 +36,7 @@ def solution(dirs):
         nx, ny = x + dx, y + dy # 현재 좌표
 
         if ((nx < 0) or (nx >= 11)) or ((ny < 0) or (ny >= 11)): # 좌표경계를 넘으면 무시
-            nx, ny = x, y
+            nx, ny = x, y # 이전 좌표로 다시 변환
             continue
 
         if not visit[f"({x}, {y})_({nx}, {ny})"]: # 방문한적이 없다면 count + 1
