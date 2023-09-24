@@ -67,6 +67,8 @@ ex) Update README.md
 - Week5 | [로봇 청소기 #162](https://github.com/RecoRecoNi/Algorithm-Study/issues/162), [뱀 #163](https://github.com/RecoRecoNi/Algorithm-Study/issues/163), [n진수 게임 #181](https://github.com/RecoRecoNi/Algorithm-Study/issues/181), [주차 요금 계산 #182](https://github.com/RecoRecoNi/Algorithm-Study/issues/182), [더 맵게 #183](https://github.com/RecoRecoNi/Algorithm-Study/issues/183), [단어 변환 #184](https://github.com/RecoRecoNi/Algorithm-Study/issues/184)
 - Week6 | [연속합 #204](https://github.com/RecoRecoNi/Algorithm-Study/issues/204), [LCS #205](https://github.com/RecoRecoNi/Algorithm-Study/issues/205), [잃어버린 괄호 #206](https://github.com/RecoRecoNi/Algorithm-Study/issues/206), [강의실 배정 #207](https://github.com/RecoRecoNi/Algorithm-Study/issues/207), [골드바흐의 추측 #208](https://github.com/RecoRecoNi/Algorithm-Study/issues/208), [수 이어쓰기 2 #209](https://github.com/RecoRecoNi/Algorithm-Study/issues/209)
 - Week7 | [게임 맵 최단거리 #236](https://github.com/RecoRecoNi/Algorithm-Study/issues/236), [모음사전 #237](https://github.com/RecoRecoNi/Algorithm-Study/issues/237), [땅따먹기 #238](https://github.com/RecoRecoNi/Algorithm-Study/issues/238), [오픈채팅방 #239](https://github.com/RecoRecoNi/Algorithm-Study/issues/239), [방문 길이 #240](https://github.com/RecoRecoNi/Algorithm-Study/issues/240), [뒤에 있는 큰 수 찾기 #241](https://github.com/RecoRecoNi/Algorithm-Study/issues/241)
+- Week8 | [공유기 설치 #266](https://www.acmicpc.net/problem/2110), [예산 #267](https://www.acmicpc.net/problem/1477), [가장 긴 짝수 연속한 부분 수열 (large) #268](https://www.acmicpc.net/problem/22862), [List of Unique Numbers #269](https://www.acmicpc.net/problem/13144), [싸이버 개강 총회 #270](https://www.acmicpc.net/problem/19583), [문자열 지옥에 빠진 호석 #271](https://www.acmicpc.net/problem/20166)
+
 
 
 
