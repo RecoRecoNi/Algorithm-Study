@@ -36,17 +36,11 @@ def solution(numbers: List[int]) -> List[int]:
     for i in range(
         len(numbers) - 2, -1, -1
     ):  # 맨 뒤의 수는 차피 -1 고정, 맨 뒤에서 두 번째 원소부터 거꾸로 탐색
-        if numbers[i] < numbers[i + 1]:  # 바로 뒤 원소가 더 크면
-            dp[i] = numbers[i + 1]  # 그냥 바로 가져가면 됨
-        else:  # 바로 뒤 원소가 작으면
-            while (
-                stack and stack[-1] <= numbers[i]
-            ):  # 스택에 들어온 순서대로 탐색, numbers[i]보다 큰 원소 발견할 때까지
-                stack.pop()  # 원소 제거, 어차피 다음 순회할 원소 입장에서도 필요 없는 수들임
-
-            dp[i] = (
-                stack[-1] if stack else -1
-            )  # numbers[i]보다 큰 원소가 발견되면 그 수를 가져가고 없으면 -1
+        while (
+            stack and stack[-1] <= numbers[i]
+        ):  # 스택에 들어온 순서대로 탐색, numbers[i]보다 큰 원소 발견할 때까지
+            stack.pop()  # 원소 제거, 어차피 다음 순회할 원소 입장에서도 필요 없는 수들임
+        dp[i] = stack[-1] if stack else -1  # numbers[i]보다 큰 원소가 발견되면 그 수를 가져가고 없으면 -1
 
         stack.append(numbers[i])  # 뒤에서부터 탐색 순서대로 stack에 넣기
 
