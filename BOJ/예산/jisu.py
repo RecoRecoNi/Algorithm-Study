@@ -14,7 +14,6 @@
 
 #### 시간 복잡도
 - maximum 탐색(이분탐색) + 예산 배정 가능 여부 = O(logN) * O(N) = O(NlogN)
-- maximum 확정 후 최대 예산 탐색 = O(N)
 
 풀이 완료 : 2023-09-24 14:12 (풀이 시간 : 10분 소요)
 
@@ -54,4 +53,4 @@ while low <= high:
     else:  # 배정 불가능 하면
         high = mid - 1  # 상한을 낮춰서 탐색
 
-print(max(map(lambda x: min(x, high), requests)))  # 상한 maximum으로 배정한 최대 예산 반환
+print(high)  # 예산의 상한이 문제의 해
