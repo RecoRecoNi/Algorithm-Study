@@ -1,7 +1,27 @@
 """
 풀이 시작 : 2023-09-26 12:55
 
+#### 제한 사항
+- N <= 1,000,000이므로, O(NlogN) 이하의 알고리즘을 설계해야 한다.
+- K는 100,000개 까지 주어질 수 있다. 단순 remove를 활용하면 안될 것이다.
+
+#### 풀이
+- 투포인터로 접근
+- 홀수 개수의 누적합을 구해 누적합의 차로 range 내의 홀수 개수를 O(1)에 구할 수 있도록 한다.
+- low, high = 0, N-1로 두고, 둘 중 소수가 더 가까운 쪽의 인덱스를 업데이트
+    - 이를 range 내의 홀수 개수가 K가 될 때까지 반복한다.
+- 예외가 너무 많다. 시간초과와 틀렸습니다의 향연
+
 풀이 참고 : 2023-09-26 14:35 (1시간 40분 경과)
+- low, high = 0, 0으로 두고 값을 넓혀가며 탐색하는 아이디어 참고
+- 이러면 소수 개수를 매번 파악할 필요 없이, 포인터를 움직일때 소수 개수를 업데이트 하는 방법으로 소수 개수 관리 가능
+- 현재 range의 소수 개수가 K 이하인경우
+    - 범위를 더 넓혀서 탐색할 수 있음, high를 넓혀서 탐색 -> 소수 개수 변화에 유의
+    - 범위가 넓어지는 경우 최대 range의 길이 업데이트 필요(홀수 개수 제외)
+- 현재 range의 소수 개수가 K 초과인 경우
+    - 범위를 좁혀서 탐색할 수 있음, low를 증가시켜 탐색 -> 소수 개수 변화에 유의
+
+풀이 완료 : 2023-09-26 15:40 (폴이 시간 : 2시간 45분 소요)
 """
 
 import sys
@@ -12,43 +32,23 @@ N, K = map(int, input().rstrip().split())
 S = list(map(int, input().rstrip().split()))
 
 
-def get_odd_len(low: int, high: int) -> int:
-    """
-    홀수 개수의 누적합을 이용해 low~high 내 홀수의 개수를 반환한다.
-    """
-    return (
-        weighted_odd_len[high] - weighted_odd_len[low]
-        if S[low] % 2 == 0
-        else weighted_odd_len[high] - weighted_odd_len[low] + 1
-    )
+low, high = 0, 0  # 포인터를 둘 다 0으로 두고 시작
+odd_cnt = int(S[high] % 2 == 1)  # 인덱스 0일 떄 홀수 개수
+answer = 0
 
+while True:
+    if odd_cnt <= K:  # 현재 range의 소수 개수가 K 이하인경우 범위가 넓어짐
+        len_nums = high - low + 1 - odd_cnt  # 현재 range의 길이(홀수 개수 제외)
+        if len_nums > answer:  # 길이가 더 넓어지는 경우
+            answer = len_nums  # 업데이트 (상수 시간 최적화)
+        high += 1  # 범위 넓히기
+        if high == N:  # overflow시 탐색 종료
+            break
+        if S[high] % 2 == 1:  # 이동 후 포인터의 인덱스 값이 홀수이면
+            odd_cnt += 1  # 홀수 개수 증가
+    else:  # 현재 range의 소수 개수가 K 초과인경우 범위가 좁아짐
+        if S[low] % 2 == 1:  # 좁아지기 전 low 인덱스 값이 홀수였던 경우
+            odd_cnt -= 1  # 이동시켰으므로 홀수 개수 감소
+        low += 1  # 범위 좁히기
 
-weighted_odd_len = [0 for _ in range(N)]
-cnt = 0
-for i in range(N):
-    if S[i] % 2 != 0:
-        cnt += 1
-    weighted_odd_len[i] = cnt
-
-low, high = 0, N - 1
-dsc_K_cnt = 0
-
-while get_odd_len(low, high) > K and low < high:
-    low_tmp, high_tmp = low, high
-
-    while low + 1 <= high and S[low] % 2 == 0:
-        low += 1
-    while high - 1 >= low and S[high] % 2 == 0:
-        high -= 1
-
-    if (low - low_tmp) < (high_tmp - high):
-        high = high_tmp
-        low += 1
-    else:
-        low = low_tmp
-        high -= 1
-
-    dsc_K_cnt += 1
-
-print(high - low + 1 - dsc_K_cnt)
-print(low, high, dsc_K_cnt)
+print(answer)
