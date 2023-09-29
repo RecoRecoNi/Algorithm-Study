@@ -19,12 +19,13 @@
 #### 의문 
 - 46번 라인의 조건문은 없어도 될 것 같은데, 없으면 전체 통과가 안됨(2/16)
     - 다음 문자가 같을 때만 가지를 뻗으니까.. 되어야 하는데.. 외 안되?
+- 의문 해결! 처음 재귀 시작할 때에도 같을 때만 재귀하도록 해줘야 했음! (수정 완료)
 
 풀이 완료 : 2023-09-28 17:49(풀이 시간 : 27분 소요)
 
 메모리 | 시간
 -- | --
-31256KB | 1640ms
+31256KB | 580ms
 """
 
 import sys
@@ -43,8 +44,7 @@ def dfs(string: str, row: int, col: int):
     global cnt
 
     if len(string) == len(target):  # 종료 조건 : target의 길이와 같을 때
-        if string == target:  # target과 같다면
-            cnt += 1  # 카운트
+        cnt += 1  # 카운트
         return
 
     for d in range(8):
@@ -64,7 +64,8 @@ for _ in range(K):
         cnt = 0
         for row in range(N):  # matrix 내 어디서든 시작할 수 있음
             for col in range(M):
-                dfs(matrix[row][col], row, col)
+                if matrix[row][col] == target[0]:
+                    dfs(matrix[row][col], row, col)
 
         target_dict[target] = cnt  # target의 해 저장해놓기
         print(cnt)
