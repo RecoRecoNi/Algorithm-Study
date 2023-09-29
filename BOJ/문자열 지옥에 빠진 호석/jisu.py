@@ -64,7 +64,7 @@ for _ in range(K):
         cnt = 0
         for row in range(N):  # matrix 내 어디서든 시작할 수 있음
             for col in range(M):
-                if matrix[row][col] == target[0]:
+                if matrix[row][col] == target[0]:  # 첫 문자 같을 때만 재귀 시작
                     dfs(matrix[row][col], row, col)
 
         target_dict[target] = cnt  # target의 해 저장해놓기
