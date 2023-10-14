@@ -69,6 +69,7 @@ ex) Update README.md
 - Week7 | [게임 맵 최단거리 #236](https://github.com/RecoRecoNi/Algorithm-Study/issues/236), [모음사전 #237](https://github.com/RecoRecoNi/Algorithm-Study/issues/237), [땅따먹기 #238](https://github.com/RecoRecoNi/Algorithm-Study/issues/238), [오픈채팅방 #239](https://github.com/RecoRecoNi/Algorithm-Study/issues/239), [방문 길이 #240](https://github.com/RecoRecoNi/Algorithm-Study/issues/240), [뒤에 있는 큰 수 찾기 #241](https://github.com/RecoRecoNi/Algorithm-Study/issues/241)
 - Week8 | [공유기 설치 #266](https://github.com/RecoRecoNi/Algorithm-Study/issues/266), [예산 #267](https://github.com/RecoRecoNi/Algorithm-Study/issues/267), [가장 긴 짝수 연속한 부분 수열 (large) #268](https://github.com/RecoRecoNi/Algorithm-Study/issues/268), [List of Unique Numbers #269](https://github.com/RecoRecoNi/Algorithm-Study/issues/269), [싸이버 개강 총회 #270](https://github.com/RecoRecoNi/Algorithm-Study/issues/270), [문자열 지옥에 빠진 호석 #271](https://github.com/RecoRecoNi/Algorithm-Study/issues/271)
 - Week9 | [주식가격 #296](https://github.com/RecoRecoNi/Algorithm-Study/issues/296), [스킬트리 #297](https://github.com/RecoRecoNi/Algorithm-Study/issues/297), [등굣길 #298](https://github.com/RecoRecoNi/Algorithm-Study/issues/298), [파일명 정렬 #299](https://github.com/RecoRecoNi/Algorithm-Study/issues/299), [프렌즈4블록 #300](https://github.com/RecoRecoNi/Algorithm-Study/issues/300), [롤케이크 자르기 #301](https://github.com/RecoRecoNi/Algorithm-Study/issues/301)
+- Week10(코테 집중 주) | [자동차 테스트 #312](https://github.com/RecoRecoNi/Algorithm-Study/issues/312), [순서대로 방문하기 #313](https://github.com/RecoRecoNi/Algorithm-Study/issues/313), [2048 (Easy) #332](https://github.com/RecoRecoNi/Algorithm-Study/issues/332), [메이즈 러너 #335](https://github.com/RecoRecoNi/Algorithm-Study/issues/335)
 
 
 
@@ -130,6 +131,10 @@ ex) Update README.md
 ### Programmers
 
 - [프로그래머스](https://school.programmers.co.kr/learn/challenges?tab=all_challenges&order=acceptance_desc&page=2&languages=python3&levels=2%2C3)의 Level 2, 3 문제를 정확도 높은순으로 정렬하여 60프로 이하의 정답률을 가지는 문제 풀기
+
+### 코테 집중 주간
+- [삼성 코테 대비 - 코드트리](https://www.codetree.ai/training-field/frequent-problems)
+- [현대 코테 대비 - 소프티어](https://softeer.ai/practice/index.do)
 
 <!-- ### Leet Code
 
